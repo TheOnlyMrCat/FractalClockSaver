@@ -333,6 +333,9 @@ class FractalClockView: ScreenSaverView {
     }
     
     override var configureSheet: NSWindow? {
+        if configSheetController.window == nil {
+            Bundle.main.loadNibNamed("Preferences", owner: self, topLevelObjects: nil)
+        }
         return configSheetController.window
     }
 }
