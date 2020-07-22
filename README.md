@@ -10,4 +10,4 @@ It is built for macOS 10.14 Mojave and above, and has the following configuratio
 |     Fractal Type | The hands which contribute to the fractal. This changes the hands from which the fractal branches and the hands displayed in the branches | Hour, Minute, Second |
 | Show second hand | Whether to show the second hand of the clock. This locks the fractal type to \`Hour, Minute\` | True                 |
 
-If you mess up with the fractal depth and lag the screensaver beyond repair, the defaults plist is located in `~/Library/Containers/com.apple.ScreenSaver.Engine.legacyScreenSaver/Data/Library/Preferences/ByHost`, the filename starting with `com.mrcat.FractalClock`. The fractal depth key is `FCFractalDepth`.
+If you mess up with the fractal depth and lag the screensaver beyond repair, the defaults plist is located in `~/Library/Preferences/ByHost` (for Mojave) or `~/Library/Containers/com.apple.ScreenSaver.Engine.legacyScreenSaver/Data/Library/Preferences/ByHost` (for Catalina), the filename starting with `com.mrcat.FractalClock`. The fractal depth key is `FCFractalDepth`.
