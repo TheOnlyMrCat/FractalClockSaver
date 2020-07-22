@@ -36,12 +36,25 @@ class ConfigureSheetController: NSObject {
             depth.integerValue = d
         }
         
-        type.selectItem(at: defaults.integer(forKey: DefaultsKey.fractalType.rawValue))
+        let t = defaults.integer(forKey: DefaultsKey.fractalType.rawValue)
+        type.selectItem(at: t)
+        
+        setTextValue(fractalType: t);
         
         if defaults.object(forKey: DefaultsKey.secondHand.rawValue) as? Bool ?? true {
             second.state = .on
         } else {
             second.state = .off
+        }
+    }
+    
+    // MARK: - Helpers
+    
+    func setTextValue(fractalType: Int) {
+        if fractalType == 0 {
+            text.stringValue = "Values above 8 tend to be unstable"
+        } else {
+            text.stringValue = "Values above 14 tend to be unstable"
         }
     }
     
@@ -51,6 +64,11 @@ class ConfigureSheetController: NSObject {
     @IBOutlet var depth: NSTextField!
     @IBOutlet var type: NSPopUpButton!
     @IBOutlet var second: NSButton!
+    @IBOutlet var text: NSTextField!
+    
+    @IBAction func typeChanged(_ sender: NSPopUpButton) {
+        setTextValue(fractalType: sender.indexOfSelectedItem)
+    }
     
     @IBAction func secondsToggled(_ sender: NSButton) {
         if sender.state == .off {

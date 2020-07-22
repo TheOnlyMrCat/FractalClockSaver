@@ -10,6 +10,7 @@
             <connections>
                 <outlet property="depth" destination="0LT-Mk-i4R" id="cu2-2A-Obq"/>
                 <outlet property="second" destination="NF7-A5-YV8" id="Nlp-dg-xmv"/>
+                <outlet property="text" destination="8o9-kD-ggO" id="Kb3-KE-0mr"/>
                 <outlet property="type" destination="2cR-nO-Ywy" id="u4e-bv-Zfn"/>
                 <outlet property="window" destination="2Gy-UE-k0u" id="v5v-II-rZG"/>
             </connections>
@@ -19,10 +20,10 @@
         <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="2Gy-UE-k0u">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="131" y="165" width="320" height="175"/>
+            <rect key="contentRect" x="131" y="165" width="320" height="187"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="900"/>
             <view key="contentView" id="i7V-Gh-0Gm">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="175"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="187"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ykf-wc-HIt">
@@ -54,7 +55,7 @@ Gw
                         </connections>
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jE7-m8-OJE">
-                        <rect key="frame" x="18" y="139" width="90" height="16"/>
+                        <rect key="frame" x="18" y="151" width="90" height="16"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" lineBreakMode="clipping" title="Fractal Depth:" id="iFJ-Gt-4Wo">
                             <font key="font" metaFont="system"/>
@@ -62,17 +63,8 @@ Gw
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5zN-z3-tHi">
-                        <rect key="frame" x="20" y="97" width="88" height="16"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" lineBreakMode="clipping" title="Clock Fractal:" id="fTT-PP-QFf">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0LT-Mk-i4R">
-                        <rect key="frame" x="125" y="136" width="175" height="21"/>
+                        <rect key="frame" x="125" y="148" width="175" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="GEp-QG-jr5">
                             <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" formatWidth="-1" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="SdL-IH-DYU"/>
@@ -81,8 +73,26 @@ Gw
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8o9-kD-ggO">
+                        <rect key="frame" x="123" y="129" width="160" height="11"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" selectable="YES" title="Values above X tend to be unstable" id="dxh-TL-O7H">
+                            <font key="font" metaFont="system" size="9"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5zN-z3-tHi">
+                        <rect key="frame" x="20" y="86" width="88" height="16"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" title="Clock Fractal:" id="fTT-PP-QFf">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                     <popUpButton verticalHuggingPriority="750" id="2cR-nO-Ywy">
-                        <rect key="frame" x="123" y="91" width="180" height="26"/>
+                        <rect key="frame" x="123" y="80" width="180" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <popUpButtonCell key="cell" type="push" title="Hour, Minute, Second" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="cnR-At-bBW" id="sih-gi-ENf">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -95,9 +105,12 @@ Gw
                                 </items>
                             </menu>
                         </popUpButtonCell>
+                        <connections>
+                            <action selector="typeChanged:" target="-2" id="Iyx-tT-2Xu"/>
+                        </connections>
                     </popUpButton>
                     <button verticalHuggingPriority="750" id="NF7-A5-YV8">
-                        <rect key="frame" x="123" y="70" width="141" height="18"/>
+                        <rect key="frame" x="123" y="59" width="141" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="check" title="Show Second Hand" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="7zC-J9-q3S">
                             <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
@@ -109,7 +122,7 @@ Gw
                     </button>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="-71" y="-185.5"/>
+            <point key="canvasLocation" x="-71" y="-179.5"/>
         </window>
     </objects>
 </document>
