@@ -68,7 +68,9 @@ class FractalClockView: ScreenSaverView {
         
         drawNumbers(fontSize: 0.071770334, radius: 0.402711324, colour: ticks_color)
         
-        drawFlavourText(text: flavourText, colour: ticks_color)
+        if flavourText != "" {
+            drawFlavourText(text: flavourText, colour: ticks_color)
+        }
     }
 
     override func animateOneFrame() {
