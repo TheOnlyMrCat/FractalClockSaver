@@ -9,4 +9,4 @@ It is built for macOS 10.14 Mojave and above, and has the following configuratio
 |    Fractal Depth | How deep the fractal is rendered. Higher values increase the detail of the fractal, but make the rendering slower. | 8                    |
 |     Fractal Type | The hands which contribute to the fractal. This changes the hands from which the fractal branches and the hands displayed in the branches | Hour, Minute, Second |
 | Show second hand | Whether to show the second hand of the clock. This locks the fractal type to \`Hour, Minute\` | True                 |
-|     Flavour Text | Text to display inside the clock face.                       | ""                   |
+|     Flavour Text | Text to display inside the clock face. Option + Enter creates a newline. |                      |
