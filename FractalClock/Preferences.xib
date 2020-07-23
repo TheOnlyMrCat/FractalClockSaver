@@ -9,6 +9,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="ConfigureSheetController" customModule="FractalClock" customModuleProvider="target">
             <connections>
                 <outlet property="depth" destination="0LT-Mk-i4R" id="cu2-2A-Obq"/>
+                <outlet property="depthStepper" destination="Vwz-Zv-tgw" id="cJR-XF-fdf"/>
                 <outlet property="flavourText" destination="QhP-3c-Xhp" id="4ag-Xx-OBn"/>
                 <outlet property="instabilityText" destination="8o9-kD-ggO" id="Kb3-KE-0mr"/>
                 <outlet property="second" destination="NF7-A5-YV8" id="Nlp-dg-xmv"/>
@@ -64,26 +65,8 @@ Gw
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5zN-z3-tHi">
-                        <rect key="frame" x="20" y="74" width="88" height="16"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" lineBreakMode="clipping" title="Clock Fractal:" id="fTT-PP-QFf">
-                            <font key="font" metaFont="message"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="QhP-3c-Xhp">
-                        <rect key="frame" x="293" y="50" width="150" height="99"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Flavour text" drawsBackground="YES" allowsEditingTextAttributes="YES" id="CEm-DT-gMv">
-                            <font key="font" metaFont="message"/>
-                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0LT-Mk-i4R">
-                        <rect key="frame" x="114" y="128" width="164" height="21"/>
+                        <rect key="frame" x="114" y="128" width="43" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="GEp-QG-jr5">
                             <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" formatWidth="-1" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="SdL-IH-DYU"/>
@@ -91,18 +74,21 @@ Gw
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
+                        <connections>
+                            <action selector="takeIntValueFrom:" target="Vwz-Zv-tgw" id="CBQ-FZ-8Va"/>
+                        </connections>
                     </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8o9-kD-ggO">
-                        <rect key="frame" x="114" y="113" width="160" height="11"/>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5zN-z3-tHi">
+                        <rect key="frame" x="185" y="131" width="88" height="16"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" lineBreakMode="clipping" title="Values above X tend to be unstable" id="dxh-TL-O7H">
-                            <font key="font" metaFont="menu" size="9"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" title="Clock Fractal:" id="fTT-PP-QFf">
+                            <font key="font" metaFont="message"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
                     <popUpButton verticalHuggingPriority="750" id="2cR-nO-Ywy">
-                        <rect key="frame" x="112" y="68" width="169" height="26"/>
+                        <rect key="frame" x="277" y="125" width="169" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <popUpButtonCell key="cell" type="push" title="Hour, Minute, Second" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="cnR-At-bBW" id="sih-gi-ENf">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -120,7 +106,7 @@ Gw
                         </connections>
                     </popUpButton>
                     <button verticalHuggingPriority="750" id="NF7-A5-YV8">
-                        <rect key="frame" x="117" y="48" width="141" height="18"/>
+                        <rect key="frame" x="282" y="107" width="141" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="check" title="Show Second Hand" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="7zC-J9-q3S">
                             <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
@@ -130,6 +116,32 @@ Gw
                             <action selector="secondsToggled:" target="-2" id="HP9-74-G3t"/>
                         </connections>
                     </button>
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="QhP-3c-Xhp">
+                        <rect key="frame" x="20" y="50" width="423" height="49"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Flavour text" drawsBackground="YES" allowsEditingTextAttributes="YES" id="CEm-DT-gMv">
+                            <font key="font" metaFont="message"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vwz-Zv-tgw">
+                        <rect key="frame" x="155" y="124" width="19" height="28"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <stepperCell key="cell" continuous="YES" alignment="left" maxValue="100" id="Vtl-Sk-gVY"/>
+                        <connections>
+                            <action selector="takeIntValueFrom:" target="0LT-Mk-i4R" id="EXH-q5-Kho"/>
+                        </connections>
+                    </stepper>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8o9-kD-ggO">
+                        <rect key="frame" x="18" y="112" width="160" height="11"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" title="Values above X tend to be unstable" id="dxh-TL-O7H">
+                            <font key="font" metaFont="menu" size="9"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
             </view>
             <point key="canvasLocation" x="0.5" y="-189.5"/>

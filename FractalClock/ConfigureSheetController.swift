@@ -33,8 +33,10 @@ class ConfigureSheetController: NSObject {
         let d = defaults.integer(forKey: DefaultsKey.fractalDepth.rawValue)
         if d == 0 {
             depth.integerValue = 8
+            depthStepper.integerValue = 8
         } else {
             depth.integerValue = d
+            depthStepper.integerValue = d
         }
         
         flavourText.stringValue = defaults.string(forKey: DefaultsKey.flavourText.rawValue) ?? ""
@@ -65,6 +67,7 @@ class ConfigureSheetController: NSObject {
     
     @IBOutlet var window: NSWindow?
     @IBOutlet var depth: NSTextField!
+    @IBOutlet var depthStepper: NSStepper!
     @IBOutlet var type: NSPopUpButton!
     @IBOutlet var second: NSButton!
     @IBOutlet var instabilityText: NSTextField!
