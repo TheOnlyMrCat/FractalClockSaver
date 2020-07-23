@@ -17,7 +17,7 @@
 		DB362ABA24BC307900A3322E /* ConfigureSheetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureSheetController.swift; sourceTree = "<group>"; };
 		DBFBB1BC24BAD998001F1BB2 /* FractalClock.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FractalClock.saver; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBFBB1C324BAD998001F1BB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DBFBB1CE24BAE3E3001F1BB2 /* FractalClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FractalClockView.swift; sourceTree = "<group>"; };
+		DBFBB1CE24BAE3E3001F1BB2 /* FractalClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FractalClockView.swift; sourceTree = "<group>"; usesTabs = 0; };
 		DBFBB25224BBAB7A001F1BB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBFBB25624BBAB7F001F1BB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DBFBB25924BBAB7F001F1BB2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };

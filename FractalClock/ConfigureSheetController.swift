@@ -14,6 +14,7 @@ enum DefaultsKey: String {
     case fractalDepth = "FCFractalDepth"
     case fractalType = "FCFractalType"
     case secondHand = "FCSecondsDisplay"
+    case flavourText = "FCFlavorText"
 }
 
 class ConfigureSheetController: NSObject {
@@ -36,10 +37,12 @@ class ConfigureSheetController: NSObject {
             depth.integerValue = d
         }
         
+        flavourText.stringValue = defaults.string(forKey: DefaultsKey.flavourText.rawValue) ?? ""
+        
         let t = defaults.integer(forKey: DefaultsKey.fractalType.rawValue)
         type.selectItem(at: t)
         
-        setTextValue(fractalType: t);
+        setUnstableText(fractalType: t);
         
         if defaults.object(forKey: DefaultsKey.secondHand.rawValue) as? Bool ?? true {
             second.state = .on
@@ -50,11 +53,11 @@ class ConfigureSheetController: NSObject {
     
     // MARK: - Helpers
     
-    func setTextValue(fractalType: Int) {
+    func setUnstableText(fractalType: Int) {
         if fractalType == 0 {
-            text.stringValue = "Values above 8 tend to be unstable"
+            instabilityText.stringValue = "Values above 8 tend to be unstable"
         } else {
-            text.stringValue = "Values above 14 tend to be unstable"
+            instabilityText.stringValue = "Values above 14 tend to be unstable"
         }
     }
     
@@ -64,10 +67,11 @@ class ConfigureSheetController: NSObject {
     @IBOutlet var depth: NSTextField!
     @IBOutlet var type: NSPopUpButton!
     @IBOutlet var second: NSButton!
-    @IBOutlet var text: NSTextField!
+    @IBOutlet var instabilityText: NSTextField!
+    @IBOutlet var flavourText: NSTextField!
     
     @IBAction func typeChanged(_ sender: NSPopUpButton) {
-        setTextValue(fractalType: sender.indexOfSelectedItem)
+        setUnstableText(fractalType: sender.indexOfSelectedItem)
     }
     
     @IBAction func secondsToggled(_ sender: NSButton) {
@@ -82,6 +86,7 @@ class ConfigureSheetController: NSObject {
     
     @IBAction func saveAndClose(_ sender: Any) {
         defaults.set(depth.integerValue, forKey: DefaultsKey.fractalDepth.rawValue)
+        defaults.set(flavourText.stringValue, forKey: DefaultsKey.flavourText.rawValue)
         defaults.set(type.indexOfSelectedItem, forKey: DefaultsKey.fractalType.rawValue)
         if second.state == .on {
             defaults.set(true, forKey: DefaultsKey.secondHand.rawValue)

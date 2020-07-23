@@ -17,6 +17,7 @@ class FractalClockView: ScreenSaverView {
     private var maximumDepth: Int
     private var fractalType: Int
     private var showSeconds: Bool
+    private var flavourText: String
     
     private var colourScheme: [NSColor]
     private var fractalPaths: [NSBezierPath]
@@ -36,6 +37,7 @@ class FractalClockView: ScreenSaverView {
         }
         fractalType = configSheetController.defaults.integer(forKey: DefaultsKey.fractalType.rawValue)
         showSeconds = configSheetController.defaults.bool(forKey: DefaultsKey.secondHand.rawValue)
+        flavourText = configSheetController.defaults.string(forKey: DefaultsKey.flavourText.rawValue) ?? ""
         
         colourScheme = Array(repeating: NSColor(calibratedWhite: 1.0, alpha: 1.0), count: maximumDepth + 1)
         fractalPaths = Array(repeating: NSBezierPath(), count: maximumDepth + 1)
@@ -65,6 +67,8 @@ class FractalClockView: ScreenSaverView {
         drawTicks(minorColor: ticks_color, minorLength: 0.024720893, minorThickness: 0.004784689, majorColor: ticks_color, majorLength: 0.049441786, majorThickness: 0.009569378, inset: 0.014)
         
         drawNumbers(fontSize: 0.071770334, radius: 0.402711324, colour: ticks_color)
+        
+        drawFlavourText(text: flavourText, colour: ticks_color)
     }
 
     override func animateOneFrame() {
@@ -134,6 +138,21 @@ class FractalClockView: ScreenSaverView {
                 colourScheme.append(NSColor(calibratedHue: CGFloat(h), saturation: CGFloat(s), brightness: CGFloat(v), alpha: 255.0))
             }
         }
+    }
+    
+    // MARK: - Drawing Helpers
+    
+    func drawFlavourText(text: String, colour: NSColor) {
+        let fontSize = CGFloat(clockFrame.width / 32) //TODO
+        let font = NSFont(name: "HelveticaNeue-Light", size: fontSize)!
+        
+        let paraStyle = NSMutableParagraphStyle()
+        paraStyle.alignment = .center
+        let str = NSAttributedString(string: flavourText, attributes: [.font: font, .foregroundColor: colour, .paragraphStyle: paraStyle])
+        let size = str.size()
+        let rect = NSRect(x: clockFrame.midX - size.width / 2, y: clockFrame.midY - (clockFrame.height / 8 * 3) + (size.height / 2), width: size.width, height: size.height)
+        
+        str.draw(in: rect)
     }
     
     func drawHands(secondsLength: Double, secondsThickness: Double, minutesLength: Double, minutesThickness: Double, hoursLength: Double, hoursThickness: Double, centre: CGPoint, baseColour: NSColor) {
