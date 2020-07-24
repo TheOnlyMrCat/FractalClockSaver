@@ -80,9 +80,11 @@ class ConfigureSheetController: NSObject {
     @IBAction func secondsToggled(_ sender: NSButton) {
         if sender.state == .off {
             type.selectItem(at: 2)
+            setUnstableText(fractalType: type.indexOfSelectedItem)
             type.isEnabled = false
         } else {
             type.selectItem(at: defaults.integer(forKey: DefaultsKey.fractalType.rawValue))
+            setUnstableText(fractalType: type.indexOfSelectedItem)
             type.isEnabled = true
         }
     }
