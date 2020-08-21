@@ -1,11 +1,3 @@
-//
-//  FractalClockView.swift
-//  FractalClock
-//
-//  Created by Max Guppy on 12/7/20.
-//  Copyright © 2020 TheOnlyMrCat. All rights reserved.
-//
-
 import ScreenSaver
 
 class FractalClockView: ScreenSaverView {

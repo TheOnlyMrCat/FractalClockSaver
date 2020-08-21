@@ -1,11 +1,3 @@
-//
-//  ConfigureSheetManager.swift
-//  FractalClock
-//
-//  Created by Max Guppy on 13/7/20.
-//  Copyright © 2020 TheOnlyMrCat. All rights reserved.
-//
-
 import AppKit
 import Foundation
 import ScreenSaver
