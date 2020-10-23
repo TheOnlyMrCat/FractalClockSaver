@@ -167,20 +167,27 @@ class FractalClockView: ScreenSaverView {
             fractalPaths.append(NSBezierPath())
         }
         
+        let cutoffTime = Date(timeIntervalSinceNow: TimeInterval(1));
+        
         if fractalType != 2 {
             recursiveDrawHands(secondsLength: secondsLength * 0.7, minutesLength: minutesLength * 0.7, hoursLength: hoursLength * 0.7,
                     centre: secondsEnd,
-                    baseAngle: secondHandAngle
+                    baseAngle: secondHandAngle,
+                    cutoffTime: cutoffTime
             )
         }
-        recursiveDrawHands(secondsLength: secondsLength * 0.7, minutesLength: minutesLength * 0.7, hoursLength: hoursLength * 0.7,
-                centre: minutesEnd,
-                baseAngle: minuteHandAngle
-        )
-        if fractalType != 1 {
+        if Date() < cutoffTime {
+            recursiveDrawHands(secondsLength: secondsLength * 0.7, minutesLength: minutesLength * 0.7, hoursLength: hoursLength * 0.7,
+                    centre: minutesEnd,
+                    baseAngle: minuteHandAngle,
+                    cutoffTime: cutoffTime
+            )
+        }
+        if fractalType != 1 && Date() < cutoffTime {
             recursiveDrawHands(secondsLength: secondsLength * 0.7, minutesLength: minutesLength * 0.7, hoursLength: hoursLength * 0.7,
                     centre: hoursEnd,
-                    baseAngle: hourHandAngle
+                    baseAngle: hourHandAngle,
+                    cutoffTime: cutoffTime
             )
         }
         
@@ -188,6 +195,9 @@ class FractalClockView: ScreenSaverView {
             let i = maximumDepth - d
             colourScheme[i].setStroke()
             fractalPaths[i].stroke()
+            if !(Date() < cutoffTime) {
+                break;
+            }
         }
         
         baseColour.setStroke()
@@ -216,7 +226,7 @@ class FractalClockView: ScreenSaverView {
         hoursPath.stroke()
     }
     
-    func recursiveDrawHands(secondsLength: Double, minutesLength: Double, hoursLength: Double, centre: CGPoint, depth: Int = 0, baseAngle: Double) {
+    func recursiveDrawHands(secondsLength: Double, minutesLength: Double, hoursLength: Double, centre: CGPoint, depth: Int = 0, baseAngle: Double, cutoffTime: Date) {
         let secondsEndX = centre.x + CGFloat(sin(secondHandAngle + baseAngle)) * clockFrame.width * CGFloat(secondsLength)
         let secondsEndY = centre.y + CGFloat(cos(secondHandAngle + baseAngle)) * clockFrame.width * CGFloat(secondsLength)
         let secondsEnd = CGPoint(x: secondsEndX, y: secondsEndY)
@@ -230,23 +240,28 @@ class FractalClockView: ScreenSaverView {
         let hoursEnd = CGPoint(x: hoursEndX, y: hoursEndY)
 
         if depth < maximumDepth {
-            if fractalType != 2 {
+            if fractalType != 2 && Date() < cutoffTime {
                 recursiveDrawHands(secondsLength: secondsLength * 0.7, minutesLength: minutesLength * 0.7, hoursLength: hoursLength * 0.7,
                         centre: secondsEnd,
                     depth: depth + 1,
-                        baseAngle: secondHandAngle + baseAngle
+                        baseAngle: secondHandAngle + baseAngle,
+                    cutoffTime: cutoffTime
                 )
             }
-            recursiveDrawHands(secondsLength: secondsLength * 0.7, minutesLength: minutesLength * 0.7, hoursLength: hoursLength * 0.7,
-                    centre: minutesEnd,
-                depth: depth + 1,
-                    baseAngle: minuteHandAngle + baseAngle
-            )
-            if fractalType != 1 {
+            if Date() < cutoffTime {
+                recursiveDrawHands(secondsLength: secondsLength * 0.7, minutesLength: minutesLength * 0.7, hoursLength: hoursLength * 0.7,
+                        centre: minutesEnd,
+                    depth: depth + 1,
+                        baseAngle: minuteHandAngle + baseAngle,
+                    cutoffTime: cutoffTime
+                )
+            }
+            if fractalType != 1 && Date() < cutoffTime {
                 recursiveDrawHands(secondsLength: secondsLength * 0.7, minutesLength: minutesLength * 0.7, hoursLength: hoursLength * 0.7,
                         centre: hoursEnd,
                     depth: depth + 1,
-                        baseAngle: hourHandAngle + baseAngle
+                        baseAngle: hourHandAngle + baseAngle,
+                    cutoffTime: cutoffTime
                 )
             }
         }
